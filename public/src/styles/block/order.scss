@@ -1,0 +1,39 @@
+.order {
+    background: url("/images/order.png") no-repeat;
+    background-position: top center;
+    background-size: cover;
+    width: 100%;
+    height: 652px;
+    color: #FFFFFF;
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        max-width: 675px;
+        text-align: center;
+        align-items: center;
+        height: 288px;
+        padding-top: 120px;
+    }
+
+    &__headers {
+        font-weight: bold;
+        font-size: 35px;
+        line-height: 40px;
+        text-align: center;
+        color: #DF9896;
+        padding: 0 10px 10px 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    }
+
+    &__text {
+        font-size: 60px;
+        line-height: 69px;
+        text-align: center; 
+        color: #FFFFFF;
+        margin-bottom: 30px;
+    }
+    &__button {
+        max-width: 220px;
+    }
+}

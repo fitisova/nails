@@ -1,0 +1,45 @@
+extends layout
+block head
+  link(rel='stylesheet', href='/assets/style.css')
+  link(rel="stylesheet", href="/assets/vendor.css")
+  meta(name='description' content='')
+  meta(name='Keywords' content='')
+  script(src="https://api-maps.yandex.ru/2.1/?apikey=93cbc4c4-15e5-4364-8ce7-c2c04785f629&lang=ru_RU" type="text/javascript")
+block content
+  section.header 
+    .wrap.header__content 
+      img(src="./images/logo.png", alt="", srcset="").header__logo
+      ul.header__list 
+        li.header__list-item.mr-4
+          a(href="#") НАШИ РАБОТЫ
+        li.header__list-item.mr-4
+          a(href="#") ПРАЙС
+        li.header__list-item
+          a(href="#")  КОНТАКТЫ
+
+      .hamburger
+        .hamburger__line-container
+            span.hamburger__line
+            span.hamburger__line.span.hamburger__line_midl
+            span.hamburger__line
+
+
+    .wrap.header__content-mobil 
+      ul.header__list.header__list_mobile 
+        li.header__list-item.header__list-item_mobile
+          a(href="#") НАШИ РАБОТЫ
+        li.header__list-item.header__list-item_mobile
+          a(href="#") ПРАЙС
+        li.header__list-item.header__list-item_mobile
+          a(href="#")  КОНТАКТЫ
+
+  include order
+  include past-works
+
+
+
+  
+
+block footer
+      script(src="/assets/vendor.js")
+      script(src="/assets/app.js")
