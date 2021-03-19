@@ -1,0 +1,39 @@
+.footer {
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        max-width: 1450px;
+        text-align: center;
+        align-items: center;
+        margin: 90px auto;
+    }
+
+    &__info {
+        position: relative;
+        bottom: 0;
+        background: #343740;
+        height: 56px;
+        width: 100%;
+        display: flex;
+    }
+
+    &__info-content {
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__info-text {
+        font-size: 16px;
+        line-height: 20px;
+        color: #FFFFFF;
+        font-family: Arial;
+    }
+    &__info-img{
+        width: 38px;
+        height: 38px;
+    }
+}

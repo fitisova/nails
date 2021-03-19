@@ -1,0 +1,53 @@
+.map-info {
+    max-width: 1290px;
+    height: 238px;
+    display: flex;
+    margin: 0 auto;
+    background: #3F424B;
+    position: relative;
+    bottom: 115px;
+
+
+    &__img {
+        width: 64px;
+        height: 64px;
+    }
+
+    &__info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    &__info-item {
+        display: flex;
+        max-width: 275px;
+        height: 93px;
+    }
+
+    &__info-content {
+        display: block;
+    }
+
+    &__info-header {
+        font-size: 32px;
+        line-height: 37px;
+        color: #FFFFFF;
+    }
+
+    &__line {
+        width: 47px;
+        height: 1px;
+        background-color: #DF9896;
+        margin: 10px 0;
+    }
+
+    &__info-text {
+        font-size: 16px;
+        line-height: 18px;
+        max-width: 145px;
+        color: #FFFFFF;
+    }
+}
