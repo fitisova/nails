@@ -1,4 +1,5 @@
 .past-works {
+    background: #F5F5F5;;
     &__content {
         display: flex;
         flex-direction: column;
@@ -33,5 +34,39 @@
         color: #333333;
         margin-top: 50px;
         margin-bottom: 52px;
+    }
+
+    &__imgs{
+        display: block;
+        margin: 0 auto;
+        margin-top: 52px;
+    }
+
+    &__imgs-container {
+        display: flex;
+        justify-content: space-between;
+        max-width: 1700px;
+        margin: 0 auto;
+        &:last-child{
+            margin: 32px auto;
+        }
+    }
+    &__imgs-item{
+
+        &_medium{
+            max-width: 550px;
+            height: 410px;
+        }
+        &_small{
+            max-width: 400px;
+            height: 420px;
+        }
+    }
+
+    &__imgs-btn{
+        max-width: 220px;
+        font-family: Arial;
+        margin: 73px auto 0;
+        padding-bottom: 70px;
     }
 }

@@ -6,6 +6,12 @@
     color: #FFFFFF;
     width: 100%;
     padding: 16px 58px;
+    text-transform: uppercase;
     border: none;
     cursor: pointer;
+
+    &_darck{
+        background-color: #333333;
+        padding: 16px 29px;
+    }
 }
