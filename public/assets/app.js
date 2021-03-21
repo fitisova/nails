@@ -2,6 +2,34 @@ var app;
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./js/public/header.js":
+/*!*****************************!*\
+  !*** ./js/public/header.js ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "../../node_modules/jquery/dist/jquery.js");
+document.querySelectorAll(".header").forEach(function (header) {
+  header.querySelector(".hamburger").onclick = function () {
+    header.querySelector(".hamburger__line-container").querySelector(".hamburger__line:first-child").classList.toggle("hamburger__line_left-active");
+    header.querySelector(".hamburger__line-container").querySelector(".hamburger__line:last-child").classList.toggle("hamburger__line_right-active");
+    header.querySelector(".hamburger__line_midl").classList.toggle("hamburger__line_none");
+
+    if (document.documentElement.clientWidth <= 1200) {
+      if ($(".header__content-mobil ").is(":hidden")) {
+        $(".header__content-mobil ").slideDown("slow");
+        $(".header__content-mobil ").css("display", "flex");
+      } else {
+        $(".header__content-mobil ").slideUp("slow");
+      }
+    } else {
+      return;
+    }
+  };
+});
+
+/***/ }),
+
 /***/ "./js/public/map.js":
 /*!**************************!*\
   !*** ./js/public/map.js ***!
@@ -28,6 +56,23 @@ function init() {
   map.geoObjects.add(myPlacemark);
 }
 
+/***/ }),
+
+/***/ "./js/public/script.js":
+/*!*****************************!*\
+  !*** ./js/public/script.js ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _map__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./map */ "./js/public/map.js");
+/* harmony import */ var _map__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_map__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./header */ "./js/public/header.js");
+/* harmony import */ var _header__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_header__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
 /***/ })
 
 /******/ 	});
@@ -49,12 +94,18 @@ function init() {
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
+/******/ 	// the startup function
+/******/ 	// It's empty as some runtime module handles the default behavior
+/******/ 	__webpack_require__.x = x => {};
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -96,21 +147,101 @@ function init() {
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// Promise = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"app": 0
+/******/ 		};
+/******/ 		
+/******/ 		var deferredModules = [
+/******/ 			["./js/public/script.js","vendor"]
+/******/ 		];
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		var checkDeferredModules = x => {};
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			var [chunkIds, moreModules, runtime, executeModules] = data;
+/******/ 			// add "moreModules" to the modules object,
+/******/ 			// then flag all "chunkIds" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0, resolves = [];
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					resolves.push(installedChunks[chunkId][0]);
+/******/ 				}
+/******/ 				installedChunks[chunkId] = 0;
+/******/ 			}
+/******/ 			for(moduleId in moreModules) {
+/******/ 				if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 					__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 				}
+/******/ 			}
+/******/ 			if(runtime) runtime(__webpack_require__);
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			while(resolves.length) {
+/******/ 				resolves.shift()();
+/******/ 			}
+/******/ 		
+/******/ 			// add entry modules from loaded chunk to deferred list
+/******/ 			if(executeModules) deferredModules.push.apply(deferredModules, executeModules);
+/******/ 		
+/******/ 			// run deferred modules when all chunks ready
+/******/ 			return checkDeferredModules();
+/******/ 		}
+/******/ 		
+/******/ 		var chunkLoadingGlobal = self["webpackChunk_name_"] = self["webpackChunk_name_"] || [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 		
+/******/ 		function checkDeferredModulesImpl() {
+/******/ 			var result;
+/******/ 			for(var i = 0; i < deferredModules.length; i++) {
+/******/ 				var deferredModule = deferredModules[i];
+/******/ 				var fulfilled = true;
+/******/ 				for(var j = 1; j < deferredModule.length; j++) {
+/******/ 					var depId = deferredModule[j];
+/******/ 					if(installedChunks[depId] !== 0) fulfilled = false;
+/******/ 				}
+/******/ 				if(fulfilled) {
+/******/ 					deferredModules.splice(i--, 1);
+/******/ 					result = __webpack_require__(__webpack_require__.s = deferredModule[0]);
+/******/ 				}
+/******/ 			}
+/******/ 			if(deferredModules.length === 0) {
+/******/ 				__webpack_require__.x();
+/******/ 				__webpack_require__.x = x => {};
+/******/ 			}
+/******/ 			return result;
+/******/ 		}
+/******/ 		var startup = __webpack_require__.x;
+/******/ 		__webpack_require__.x = () => {
+/******/ 			// reset startup function so it can be called again when more startup code is added
+/******/ 			__webpack_require__.x = startup || (x => {});
+/******/ 			return (checkDeferredModules = checkDeferredModulesImpl)();
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /************************************************************************/
-var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be in strict mode.
-(() => {
-"use strict";
-/*!*****************************!*\
-  !*** ./js/public/script.js ***!
-  \*****************************/
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _map__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./map */ "./js/public/map.js");
-/* harmony import */ var _map__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_map__WEBPACK_IMPORTED_MODULE_0__);
-
-})();
-
-app = __webpack_exports__;
+/******/ 	
+/******/ 	// run startup
+/******/ 	var __webpack_exports__ = __webpack_require__.x();
+/******/ 	app = __webpack_exports__;
+/******/ 	
 /******/ })()
 ;
 //# sourceMappingURL=app.js.map
