@@ -91,9 +91,34 @@ $(document).ready(function ($) {
     }
   });
 });
-var im = new (inputmask__WEBPACK_IMPORTED_MODULE_0___default())("99-9999999"); // document.querySelectorAll(".inputPhone").forEach(input=>{
+var im = new (inputmask__WEBPACK_IMPORTED_MODULE_0___default())("+7 (999) 999-99-99");
+im.mask(document.querySelector(".inputPhone"));
 
-im.mask(document.querySelector(".inputPhone")); // })
+document.querySelector(".popup__btn").onclick = function () {
+  var phone = document.querySelector(".inputPhone").value;
+
+  if (phone.length == 18 && phone.indexOf('_') == -1) {
+    fetch("/addUser", {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8'
+      },
+      body: JSON.stringify({
+        phone: phone
+      })
+    }).then(function (res) {
+      if (res.status == 200) {
+        alert("Операция завершина успешно");
+        document.location.reload();
+      } else {
+        alert("Что-то пошло не так");
+        document.location.reload();
+      }
+    });
+  } else {
+    alert("Пожалуйста убедитесь в правильности написания номера");
+  }
+};
 
 /***/ }),
 

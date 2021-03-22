@@ -119,9 +119,11 @@ document.querySelectorAll('.changes-new-or-old').forEach(function (form) {
       body: formData
     }).then(function (res) {
       if (res.status == 200) {
-        alert("Операция завершина успешно"); // document.location.reload();
+        alert("Операция завершина успешно");
+        document.location.reload();
       } else {
-        alert("Что-то пошло не так"); // document.location.reload();
+        alert("Что-то пошло не так");
+        document.location.reload();
       }
     });
   });
