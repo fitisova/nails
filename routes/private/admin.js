@@ -112,4 +112,11 @@ router.patch('/works/update:id', forms.single('file'), async function (req, res,
     res.end();
 });
 
+
+// USERS
+
+router.get('/users', async function(req, res, next) {
+    const result = await knex.select(["phone","id"]).from("users").where("status",0);
+    res.render('private/users',{users:result});
+});
 module.exports = router;

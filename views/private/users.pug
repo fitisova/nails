@@ -1,0 +1,30 @@
+extends layout
+block head
+  link(rel="stylesheet", href="/assets/styleAdmin.css")
+block content
+
+  .card.text-center
+        .card-header
+          .btn-group
+            a.btn.btn-primary(href='/fitisova/admin' ) Прайс
+            a.btn.btn-primary(href='/fitisova/admin/works') Прошлые работы
+            a.btn.btn-primary.active(href='/fitisova/admin/users') Заявки
+        .card-body.mx-auto.w-100
+            .changes
+                table.table
+                    thead
+                        tr
+                        th(scope='col') id клиента
+                        th(scope='col') Номер телефона 
+                        th(scope='col') Действия
+                    tbody
+                        each val in users
+                            tr.changes__row
+                                th #{val.id} 
+                                th #{val.phone}
+                                td
+                                  form.button-form 
+                                      button.btn.btn-danger.mr-1.delete-entity-button(type='button' name="deleteEntity" data-url-entity='/fitisova/admin/users/delite' data-id-entity=val.id ) Удалить
+block footer
+  script(src="/assets/vendor.js")
+  script(src="/assets/admin.js")
