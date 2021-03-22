@@ -3,8 +3,8 @@ const knex = require("knex")({
     connection: {
       host : '127.0.0.1',
       user : 'root',
-      password : 'rfrjqnjjxtymdf;ysgfhjkm',
-      database : 'plumbing',
+      password : '3223225a',
+      database : 'nails',
       insecureAuth : true
     }
   });

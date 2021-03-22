@@ -50,4 +50,12 @@
         max-width: 145px;
         color: #FFFFFF;
     }
+
+    @include _768 {
+        height: 400px;
+        &__info{
+            justify-content: space-around;
+            flex-direction: column;
+        }
+    }
 }

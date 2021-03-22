@@ -45,6 +45,7 @@
     &__imgs-container {
         display: flex;
         justify-content: space-between;
+        flex-wrap: wrap;
         max-width: 1700px;
         margin: 0 auto;
         &:last-child{
@@ -52,7 +53,6 @@
         }
     }
     &__imgs-item{
-        // object-fit: cover;
         &_medium{
             max-width: 550px;
             height: 410px;
@@ -68,5 +68,34 @@
         font-family: Arial;
         margin: 73px auto 0;
         padding-bottom: 70px;
+    }
+
+    @include _1200{
+        &__imgs-item_small{
+            max-width: 300px;
+            height: 320px;
+            margin-top: 60px;
+
+            &:last-child {
+                display: none;
+            }
+        }
+        &__imgs-container:last-child {
+            margin: 0 auto;
+        }
+        &__imgs-container{
+            justify-content: space-around;
+        }
+    }
+    @include _768{
+        &__imgs-item_small{
+            max-width: 300px;
+            height: 320px;
+            margin-top: 60px;
+
+            &:last-child {
+                display: block;
+            }
+        } 
     }
 }

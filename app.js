@@ -5,11 +5,12 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const session = require('express-session');
 
-const isAdmin = require("./module/isAdmin");
+const autorez = require("./module/isAdmin");
 
 
 const indexRouter = require('./routes/public/index');
-
+const login = require('./routes/private/login');
+const admin = require('./routes/private/admin');
 
 const app = express();
 
@@ -35,6 +36,8 @@ app.use(session({
 
 
 app.use('/', indexRouter);
+app.use('/fitisova', login);
+app.use('/fitisova/admin', autorez ,admin);
 
 
 // catch 404 and forward to error handler

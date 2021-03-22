@@ -1,0 +1,37 @@
+extends layout
+block head
+  link(rel="stylesheet", href="/assets/styleAdmin.css")
+block content
+
+  .card.text-center
+        .card-header
+          .btn-group
+            a.btn.btn-primary(href='/fitisova/admin' ) Прайс
+            a.btn.btn-primary.active(href='/fitisova/admin/works') Прошлые работы
+            a.btn.btn-primary(href='#') Заявки
+        .card-body.mx-auto.w-100
+            .changes
+                a(href="/fitisova/admin/worksAdd").btn.btn-success.float-left.mb-3 Добавить
+                table.table
+                    thead
+                        tr
+                        th(scope='col') id услуги
+                        th(scope='col') Фото
+                        th(scope='col') Действия
+                    tbody
+                        each val in works
+                            tr.changes__row
+                                th #{val.id} 
+                                th.w-25 
+                                    img(src=val.imgSrc, alt="").w-50 
+                                td
+                                  form.button-form 
+                                      button.btn.btn-danger.mr-1.delete-entity-button(type='button' name="deleteEntity" data-url-entity='/fitisova/admin/works/delite' data-id-entity=val.id ) Удалить
+                                      button.btn.btn-warning(type='button' name="updateEntity" data-url-entity='/fitisova/admin/works/update' data-id-entity= val.id data-name=val.id) Редактировать
+                        
+                        
+
+
+block footer
+  script(src="/assets/vendor.js")
+  script(src="/assets/admin.js")

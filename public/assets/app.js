@@ -58,6 +58,45 @@ function init() {
 
 /***/ }),
 
+/***/ "./js/public/popup.js":
+/*!****************************!*\
+  !*** ./js/public/popup.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var inputmask__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! inputmask */ "../../node_modules/inputmask/index.js");
+/* harmony import */ var inputmask__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(inputmask__WEBPACK_IMPORTED_MODULE_0__);
+/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "../../node_modules/jquery/dist/jquery.js");
+
+$(document).ready(function ($) {
+  $('.popup-open').click(function () {
+    $('.popup-fade').fadeIn();
+    return false;
+  });
+  $('.popup-close').click(function () {
+    $(this).parents('.popup-fade').fadeOut();
+    return false;
+  });
+  $(document).keydown(function (e) {
+    if (e.keyCode === 27) {
+      e.stopPropagation();
+      $('.popup-fade').fadeOut();
+    }
+  });
+  $('.popup-fade').click(function (e) {
+    if ($(e.target).closest('.popup').length == 0) {
+      $(this).fadeOut();
+    }
+  });
+});
+var im = new (inputmask__WEBPACK_IMPORTED_MODULE_0___default())("99-9999999"); // document.querySelectorAll(".inputPhone").forEach(input=>{
+
+im.mask(document.querySelector(".inputPhone")); // })
+
+/***/ }),
+
 /***/ "./js/public/script.js":
 /*!*****************************!*\
   !*** ./js/public/script.js ***!
@@ -70,6 +109,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _map__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_map__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./header */ "./js/public/header.js");
 /* harmony import */ var _header__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_header__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _popup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./popup */ "./js/public/popup.js");
+
 
 
 

@@ -1,0 +1,22 @@
+extends layout
+block head
+  link(rel="stylesheet", href="/assets/styleAdmin.css")
+block content
+    .card.text-center
+        .card-header
+          .btn-group
+            a.btn.btn-primary(href='/fitisova/admin' ) Прайс
+            a.btn.btn-primary.active(href='/fitisova/admin/works') Прошлые работы
+            a.btn.btn-primary(href='#') Заявки
+        .card-body.mx-auto.w-50
+            form.changes-new-or-old
+                img(src=result.imgSrc, alt="").w-50 
+                .custom-file.mt-3
+                    input#fileBath.custom-file-input.upladed(type='file' name="file")
+                    label.custom-file-label(for='fileBath') Загрузить фото
+                .mt-3.d-flex.justify-content-center(name="formBtn")
+                    a(href="/fitisova/admin/works").btn.btn-primary.card-body-news-CRUD__button-back.mr-3.float-left(type='submit') ← назад 
+                    button.btn.btn-primary.float-left(type='submit' name="formBtn" data-type='update' data-url="/fitisova/admin/works/update" data-photo='true' data-id=result.id) Отправить
+block footer
+  script(src="/assets/vendor.js")
+  script(src="/assets/admin.js")
