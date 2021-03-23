@@ -58,10 +58,11 @@
             height: 86px;
             margin-left: 28px;
         }
+        &__item-text{
+            margin-left: 40px;
+            font-size: 18px;
+        }
     }
 
-    &__item-text{
-        margin-left: 40px;
-        font-size: 18px;
-    }
+    
 }
