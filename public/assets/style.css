@@ -799,6 +799,10 @@
     margin-left: 28px;
   }
 }
+.price__item-text {
+  margin-left: 40px;
+  font-size: 18px;
+}
 
 .stages__header {
   display: flex;
