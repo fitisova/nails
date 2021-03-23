@@ -28,6 +28,10 @@
 }
 body{
     background-color: #fff;
+
+    @include _768{
+        overflow-x: hidden;
+    }
 }
 img{
     width: 100%;

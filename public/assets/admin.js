@@ -6,10 +6,8 @@ var admin;
 /*!*****************************!*\
   !*** ./js/private/Login.js ***!
   \*****************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+/***/ (() => {
 
-/* provided dependency */ var $ = __webpack_require__(/*! jquery */ "../../node_modules/jquery/dist/jquery.js");
-console.log($(".login-form"));
 document.querySelectorAll(".login-form").forEach(function (form) {
   form.addEventListener('submit', function (event) {
     event.preventDefault();
@@ -58,12 +56,10 @@ document.querySelectorAll(".button-form").forEach(function (form) {
     });
   });
   form.deleteEntity.addEventListener('click', function () {
-    if (confirm("\u0412\u044B \u0443\u0432\u0435\u0440\u0435\u043D\u044B \u0447\u0442\u043E \u0445\u043E\u0442\u0438\u0442\u0435 \u0443\u0434\u0430\u043B\u0438\u0442\u044C \u044D\u043B\u043B\u0435\u043C\u0435\u043D\u0442 \u0441 \u0438\u043C\u0435\u043D\u0435\u043C = ".concat(name, "?"))) {
+    if (confirm("\u0412\u044B \u0443\u0432\u0435\u0440\u0435\u043D\u044B \u0447\u0442\u043E \u0445\u043E\u0442\u0438\u0442\u0435 \u0443\u0434\u0430\u043B\u0438\u0442\u044C \u044D\u043B\u043B\u0435\u043C\u0435\u043D\u0442 ".concat(name, "?"))) {
       fetch(urlDelete + id, {
         method: 'DELETE'
       }).then(function (result) {
-        console.log();
-
         if (result.status == 200) {
           document.location.reload();
         } else {
@@ -85,8 +81,6 @@ document.querySelectorAll(".button-form").forEach(function (form) {
 /* provided dependency */ var $ = __webpack_require__(/*! jquery */ "../../node_modules/jquery/dist/jquery.js");
 document.querySelectorAll('.changes-new-or-old').forEach(function (form) {
   var formData = new FormData();
-  console.log(form);
-  console.log(form.formBtn.dataset.type);
   var type = form.formBtn.dataset.type;
   var url, id, method;
   form.addEventListener('submit', function (event) {

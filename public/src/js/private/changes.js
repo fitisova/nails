@@ -1,7 +1,5 @@
 document.querySelectorAll('.changes-new-or-old').forEach(form => {
     var formData = new FormData();
-    console.log(form);
-    console.log(form.formBtn.dataset.type);
     const type = form.formBtn.dataset.type;
     let url, id, method;
 

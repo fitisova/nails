@@ -36,4 +36,10 @@
     &__button {
         max-width: 220px;
     }
+    
+    @include _768 {
+        &__text{
+            font-size: 32px;
+        }
+    }
 }

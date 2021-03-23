@@ -8,14 +8,10 @@ section.past-works
             p.past-works__text Мы имеем лучшее сооношении гармонии, красоты, все виды ногтевого сервиса а самое главное,  нам доверяют и благодаря нашим клиентам получаются такие замечательные работы
     .past-works__imgs 
         .past-works__imgs-container 
-            img(src="./images/worck_1.png", alt="").past-works__imgs-item.past-works__imgs-item_small
-            img(src="./images/worck_2.png", alt="").past-works__imgs-item.past-works__imgs-item_small
-            img(src="./images/12.jpg", alt="").past-works__imgs-item.past-works__imgs-item_small
-            img(src="./images/worck_11.jpg", alt="").past-works__imgs-item.past-works__imgs-item_small
-        .past-works__imgs-container
-            img(src="./images/worck_7.jpg", alt="").past-works__imgs-item.past-works__imgs-item_small
-            img(src="./images/worck_8.jpg", alt="").past-works__imgs-item.past-works__imgs-item_small
-            img(src="./images/worck_9.jpg", alt="").past-works__imgs-item.past-works__imgs-item_small
-            img(src="./images/worck_10.jpg", alt="").past-works__imgs-item.past-works__imgs-item_small
+            each val in workStaticOne
+                img(src=val.imgSrc, alt="").past-works__imgs-item.past-works__imgs-item_small
+        .past-works__imgs-container.past-works__imgs-container_acardeon 
+            each val in workDinamick
+                img(src=val.imgSrc, alt="").past-works__imgs-item.past-works__imgs-item_small.mt-10
     .past-works__imgs-btn
         button.button.button_darck СМОТРЕТЬ БОЛЬШЕ 

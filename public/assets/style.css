@@ -537,6 +537,11 @@
 .order__button {
   max-width: 220px;
 }
+@media (max-width: 768px) {
+  .order__text {
+    font-size: 32px;
+  }
+}
 
 .button {
   background: #DF9896;
@@ -599,10 +604,10 @@
   justify-content: space-between;
   flex-wrap: wrap;
   max-width: 1700px;
-  margin: 0 auto;
-}
-.past-works__imgs-container:last-child {
   margin: 32px auto;
+}
+.past-works__imgs-container_acardeon {
+  display: none;
 }
 .past-works__imgs-item_medium {
   max-width: 550px;
@@ -909,6 +914,11 @@
 
 body {
   background-color: #fff;
+}
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
 }
 
 img {

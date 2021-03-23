@@ -13,11 +13,10 @@ document.querySelectorAll(".button-form").forEach(form => {
     });
 
     form.deleteEntity.addEventListener('click', () => {
-        if (confirm(`Вы уверены что хотите удалить эллемент с именем = ${name}?`)) {
+        if (confirm(`Вы уверены что хотите удалить эллемент ${name}?`)) {
             fetch(urlDelete+id, {
                 method: 'DELETE'
             }).then(result => {
-                console.log()
                 if (result.status == 200) {
                     document.location.reload();
                 } else {
