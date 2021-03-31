@@ -101,10 +101,6 @@
   margin-bottom: 120px;
 }
 
-.mb-20 {
-  margin-bottom: 160px;
-}
-
 .ml-1 {
   margin-left: 8px;
 }
@@ -233,20 +229,12 @@
   padding-top: 80px;
 }
 
-.pt-100 {
-  padding-top: 100px;
-}
-
 .pt-11 {
   padding-top: 88px;
 }
 
 .pt-12 {
   padding-top: 96px;
-}
-
-.pt-20 {
-  padding-top: 160px;
 }
 
 .pb-1 {
@@ -381,16 +369,6 @@
   padding-right: 88px;
 }
 
-@font-face {
-  font-family: "Montserrat";
-  src: url("/fonts/Montserrat-Regular.woff") format("woff");
-  font-weight: 500;
-}
-@font-face {
-  font-family: "Montserrat-Bold";
-  src: url("/fonts/Montserrat-Bold.woff") format("woff");
-  font-weight: 800;
-}
 .header__content {
   display: flex;
   height: 70px;
