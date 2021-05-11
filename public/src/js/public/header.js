@@ -16,3 +16,12 @@ document.querySelectorAll(".header").forEach(header=>{
         }
     };
 });
+
+setTimeout(()=>{
+    document.querySelector(".promotions").style.display = "block";
+
+    document.querySelector(".promotions__close").onclick = () =>{
+    document.querySelector(".promotions").style.display = "none";
+
+    }
+},3000);

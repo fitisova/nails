@@ -44,30 +44,46 @@ document.querySelectorAll(".login-form").forEach(function (form) {
 /***/ (() => {
 
 document.querySelectorAll(".button-form").forEach(function (form) {
-  var id = form.updateEntity.dataset.idEntity;
-  var name = form.updateEntity.dataset.name;
-  var urlUpdate = form.updateEntity.dataset.urlEntity;
-  var urlDelete = form.deleteEntity.dataset.urlEntity;
-  form.updateEntity.addEventListener('click', function () {
-    fetch(urlUpdate + id, {
-      method: 'GET'
-    }).then(function () {
-      document.location.href = urlUpdate + id;
-    });
-  });
-  form.deleteEntity.addEventListener('click', function () {
-    if (confirm("\u0412\u044B \u0443\u0432\u0435\u0440\u0435\u043D\u044B \u0447\u0442\u043E \u0445\u043E\u0442\u0438\u0442\u0435 \u0443\u0434\u0430\u043B\u0438\u0442\u044C \u044D\u043B\u043B\u0435\u043C\u0435\u043D\u0442 ".concat(name, "?"))) {
-      fetch(urlDelete + id, {
-        method: 'DELETE'
-      }).then(function (result) {
-        if (result.status == 200) {
-          document.location.reload();
-        } else {
-          alert('Упс! кажется что то сломалось');
-        }
+  var id;
+  var name;
+  var urlUpdate;
+  var urlDelete;
+
+  if (form.updateEntity != undefined) {
+    id = form.updateEntity.dataset.idEntity;
+    name = form.updateEntity.dataset.name;
+    urlUpdate = form.updateEntity.dataset.urlEntity;
+    form.updateEntity.addEventListener('click', function () {
+      fetch(urlUpdate + id, {
+        method: 'GET'
+      }).then(function () {
+        document.location.href = urlUpdate + id;
       });
-    }
-  });
+    });
+    urlDelete = form.deleteEntity ? form.deleteEntity.dataset.urlEntity : "NaN";
+  } else {
+    id = form.deleteEntity.dataset.idEntity;
+    name = form.deleteEntity.dataset.name;
+    urlDelete = form.deleteEntity.dataset.urlEntity;
+  }
+
+  if (form.deleteEntity) {
+    form.deleteEntity.addEventListener('click', function () {
+      if (confirm("\u0412\u044B \u0443\u0432\u0435\u0440\u0435\u043D\u044B \u0447\u0442\u043E \u0445\u043E\u0442\u0438\u0442\u0435 \u0443\u0434\u0430\u043B\u0438\u0442\u044C \u044D\u043B\u043B\u0435\u043C\u0435\u043D\u0442 ".concat(name, "?"))) {
+        fetch(urlDelete + id, {
+          method: 'DELETE'
+        }).then(function (result) {
+          if (result.status == 200) {
+            document.location.reload();
+          } else {
+            alert('Упс! кажется что то сломалось');
+          }
+        });
+      }
+    });
+  } else {
+    return;
+  }
 });
 
 /***/ }),

@@ -53,6 +53,13 @@ document.querySelectorAll(".header").forEach(function (header) {
     }
   };
 });
+setTimeout(function () {
+  document.querySelector(".promotions").style.display = "block";
+
+  document.querySelector(".promotions__close").onclick = function () {
+    document.querySelector(".promotions").style.display = "none";
+  };
+}, 3000);
 
 /***/ }),
 
@@ -122,6 +129,8 @@ im.mask(document.querySelector(".inputPhone"));
 
 document.querySelector(".popup__btn").onclick = function () {
   var phone = document.querySelector(".inputPhone").value;
+  var id_price = document.querySelector(".popup-select").value;
+  var name = document.querySelector(".inputFIO").value;
 
   if (phone.length == 18 && phone.indexOf('_') == -1) {
     fetch("/addUser", {
@@ -130,7 +139,9 @@ document.querySelector(".popup__btn").onclick = function () {
         'Content-Type': 'application/json;charset=utf-8'
       },
       body: JSON.stringify({
-        phone: phone
+        phone: phone,
+        name: name,
+        id_price: id_price
       })
     }).then(function (res) {
       if (res.status == 200) {

@@ -1,5 +1,6 @@
 extends layout
 block head
+  title Nails
   link(rel='stylesheet', href='/assets/style.css')
   link(rel="stylesheet", href="/assets/vendor.css")
   meta(name='description' content='Оказание услуг маникюра и педикюра по хоршему соотношению цена качества')
@@ -7,6 +8,9 @@ block head
   link(rel='shortcut icon' href='./images/icon.png' type='image/png')
   script(src="https://api-maps.yandex.ru/2.1/?apikey=26747147-d36c-4310-87e9-744327f93bf4&size=450,150&lang=ru_RU" type="text/javascript")
 block content
+  section.promotions
+    span.promotions__close ❌
+    p.promotions__text #{promotions.description}
   section.header 
     .wrap.header__content 
       img(src="./images/logo.png", alt="", srcset="").header__logo

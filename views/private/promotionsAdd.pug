@@ -5,22 +5,18 @@ block content
     .card.text-center
         .card-header
           .btn-group
-            a.btn.btn-primary.active(href='/fitisova/admin' ) Прайс
-            a.btn.btn-primary(href='/fitisova/admin/works') Прошлые работы
+            a.btn.btn-primary.active(href='#' ) Прайс
+            a.btn.btn-primary(href='/fitisova/admin/users') Прошлые работы
             a.btn.btn-primary(href='/fitisova/admin/users') Заявки
             a.btn.btn-primary(href='/fitisova/admin/promotions') Акции
-
         .card-body.mx-auto.w-50
             form.changes-new-or-old
                 .mb-3
-                    label.form-label Название 
-                    input.form-control(type='text' value =`${result.name}` name="name")
-                .mb-3
-                    label.form-label Стоимость 
-                    input.form-control(type='text' value =`${result.price}`  name="price")
+                    label.form-label Описание 
+                    input.form-control(type='text'  name="name")
                 .d-flex.justify-content-center(name="formBtn")
                     a(href="/fitisova/admin").btn.btn-primary.card-body-news-CRUD__button-back.mr-3.float-left(type='submit') ← назад 
-                    button.btn.btn-primary.float-left(type='submit' name="formBtn" data-type='update' data-url="/fitisova/admin/price/update" data-id=result.id) Отправить
+                    button.btn.btn-primary.float-left(type='submit' name="formBtn" data-type='add' data-url="/fitisova/admin/promotionsAdd" ) Отправить
                         
                         
 

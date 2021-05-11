@@ -5,8 +5,9 @@ var router = express.Router();
 
 router.get('/', async function (req, res, next) {
   try {
-    let prise = await knex.select(["name", "price"]).from("price");
+    let prise = await knex.select("*").from("price");
     let work = await knex.select(["imgSrc"]).from("works");
+    let [promotions] = await knex.select(["description"]).from("promotions");
     let workStaticOne = [];
     let workStaticTwo = [];
     let workStatic = [];
@@ -22,7 +23,8 @@ router.get('/', async function (req, res, next) {
     res.render('public/index', {
       prise: prise,
       workStaticOne: workStaticOne,
-      workDinamick: workDinamick
+      workDinamick: workDinamick,
+      promotions:promotions
     });
   } catch (error) {
     next(error);
@@ -31,13 +33,12 @@ router.get('/', async function (req, res, next) {
 });
 
 router.post('/addUser', async function (req, res, next) {
-  const {
-    phone
-  } = req.body;
+  const { phone, id_price, name } = req.body;
   try {
-    await knex('users').insert({
+    await knex('client').insert({
       phone: phone,
-      status: 0
+      id_price: id_price,
+      name: name
     })
     res.status(200).end();
   } catch (error) {

@@ -31,6 +31,8 @@ im.mask(document.querySelector(".inputPhone"));
 
 document.querySelector(".popup__btn").onclick = () => {
 	let phone = document.querySelector(".inputPhone").value;
+	let id_price = document.querySelector(".popup-select").value;
+	let name = document.querySelector(".inputFIO").value;
 	if (phone.length == 18 && phone.indexOf( '_' ) == -1 ) {
 		fetch("/addUser", {
 			method: "POST",
@@ -38,7 +40,9 @@ document.querySelector(".popup__btn").onclick = () => {
 				'Content-Type': 'application/json;charset=utf-8'
 			},
 			body: JSON.stringify({
-				phone: phone
+				phone: phone,
+				name:name,
+				id_price:id_price
 			})
 		}).then(res => {
 			if (res.status == 200) {

@@ -1,8 +1,6 @@
-const mysql = require("mysql");
 const knex = require("../../module/db");
 var express = require('express');
 var router = express.Router();
-const session = require('express-session');
 const forms  = require("../../module/fileLoader");
 
 
@@ -116,7 +114,52 @@ router.patch('/works/update:id', forms.single('file'), async function (req, res,
 // USERS
 
 router.get('/users', async function(req, res, next) {
-    const result = await knex.select(["phone","id"]).from("users").where("status",0);
+    const result = await knex('client')
+    .join('price', 'client.id_price', '=', 'price.id')
+    .select('client.id as id', 'client.phone as phone', 'client.name as name','price.name as nameClient');
     res.render('private/users',{users:result});
 });
+
+router.delete('/users/delite:id', async function (req, res, next) {
+    let id = req.params.id
+    try {
+        await knex('client').where('id', id).del();
+        res.status(200).end();
+    } catch (error) {
+        next(error);
+    }
+});
+
+
+router.get('/promotions', async function(req, res, next) {
+    const result = await knex.select("*").from("promotions");
+    res.render('private/promotions',{promotions:result});
+});
+
+
+router.get('/promotions/update:id', async function (req, res, next) {
+    try {
+        let id = req.params.id;
+        const [result] = await knex.select("*").from("promotions")
+        .where({'id': id});
+        req.status = 201;
+        res.render('private/promotionsUpdate', {
+            result
+        });
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+});
+
+router.patch('/promotions/update:id', forms.none(), async function (req, res, next) {
+    const {description} = req.body;
+    const id = req.params.id;
+    await knex('promotions').where('id', id).update({
+        id: id,
+        description: decodeURI(description)
+    });
+    res.end();
+});
+
 module.exports = router;

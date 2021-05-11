@@ -9,6 +9,8 @@ block content
             a.btn.btn-primary(href='/fitisova/admin' ) Прайс
             a.btn.btn-primary(href='/fitisova/admin/works') Прошлые работы
             a.btn.btn-primary.active(href='/fitisova/admin/users') Заявки
+            a.btn.btn-primary(href='/fitisova/admin/promotions') Акции
+
         .card-body.mx-auto.w-100
             .changes
                 table.table
@@ -16,15 +18,19 @@ block content
                         tr
                         th(scope='col') id клиента
                         th(scope='col') Номер телефона 
+                        th(scope='col') Имя
+                        th(scope='col') Услуга
                         th(scope='col') Действия
                     tbody
                         each val in users
                             tr.changes__row
                                 th #{val.id} 
                                 th #{val.phone}
+                                th #{val.name}
+                                th #{val.nameClient}
                                 td
                                   form.button-form 
-                                      button.btn.btn-danger.mr-1.delete-entity-button(type='button' name="deleteEntity" data-url-entity='/fitisova/admin/users/delite' data-id-entity=val.id ) Удалить
+                                      button.btn.btn-danger.mr-1.delete-entity-button(type='button' name="deleteEntity" data-url-entity='/fitisova/admin/users/delite' data-id-entity=val.id  data-name=val.nameClient) Удалить
 block footer
   script(src="/assets/vendor.js")
   script(src="/assets/admin.js")
