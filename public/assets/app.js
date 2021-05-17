@@ -133,25 +133,30 @@ document.querySelector(".popup__btn").onclick = function () {
   var name = document.querySelector(".inputFIO").value;
 
   if (phone.length == 18 && phone.indexOf('_') == -1) {
-    fetch("/addUser", {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8'
-      },
-      body: JSON.stringify({
-        phone: phone,
-        name: name,
-        id_price: id_price
-      })
-    }).then(function (res) {
-      if (res.status == 200) {
-        alert("Операция завершина успешно");
-        document.location.reload();
-      } else {
-        alert("Что-то пошло не так");
-        document.location.reload();
-      }
-    });
+    if (document.querySelector(".userData__cheked").checked) {
+      fetch("/addUser", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify({
+          phone: phone,
+          name: name,
+          id_price: id_price
+        })
+      }).then(function (res) {
+        if (res.status == 200) {
+          alert("Операция завершина успешно");
+          document.location.reload();
+        } else {
+          alert("Что-то пошло не так");
+          document.location.reload();
+        }
+      });
+    } else {
+      alert("Подтвердите согласие на обработку данных");
+      return;
+    }
   } else {
     alert("Пожалуйста убедитесь в правильности написания номера");
   }
