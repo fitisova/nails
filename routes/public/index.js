@@ -33,12 +33,11 @@ router.get('/', async function (req, res, next) {
 });
 
 router.post('/addUser', async function (req, res, next) {
-  const { phone, id_price, name } = req.body;
+  const { phone, id_price } = req.body;
   try {
     await knex('client').insert({
       phone: phone,
       id_price: id_price,
-      name: name
     })
     res.status(200).end();
   } catch (error) {

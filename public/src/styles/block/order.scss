@@ -1,5 +1,5 @@
 .order {
-    background: url("/images/order.png") no-repeat;
+    background: url("/images/5.jpg") no-repeat;
     background-position: top center;
     background-size: cover;
     width: 100%;
@@ -24,6 +24,7 @@
         color: #DF9896;
         padding: 0 10px 10px 10px;
         border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        text-shadow:0 0 25px rgb(255, 255, 255);
     }
 
     &__text {
@@ -32,6 +33,7 @@
         text-align: center; 
         color: #FFFFFF;
         margin-bottom: 30px;
+        text-shadow: 0 0 20px black;
     }
     &__button {
         max-width: 220px;

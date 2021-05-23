@@ -1,13 +1,15 @@
 .promotions{
-  display: none;
-  width: 100%;
+  // display: none;
   position: fixed;
   z-index: 2;
   background: #DF9896;
   color: #fff;
   text-align: center;
-  animation-name: UpToDown;
-  transition: 1s;
+  padding: 0 24px;
+  right: 24px;
+  border-radius: 16px;
+  top: 86px;
+  animation: UpToDown 1.2s;
   &__text{
     padding: 24px 0;
   }
@@ -17,16 +19,18 @@
     top: 10px;
     right: 10px;
     cursor: pointer;
+    font-size: 10px;
   }
 }
 
 
 @keyframes UpToDown {
   from {
-    top: -50px;
+    // top: -50px;
+    right: -400px;
   }
 
   to {
-    top: 0;
+    right: 24px;
   }
 }

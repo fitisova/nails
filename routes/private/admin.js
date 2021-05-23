@@ -116,7 +116,7 @@ router.patch('/works/update:id', forms.single('file'), async function (req, res,
 router.get('/users', async function(req, res, next) {
     const result = await knex('client')
     .join('price', 'client.id_price', '=', 'price.id')
-    .select('client.id as id', 'client.phone as phone', 'client.name as name','price.name as nameClient');
+    .select('client.id as id', 'client.phone as phone','price.name as nameClient');
     res.render('private/users',{users:result});
 });
 
