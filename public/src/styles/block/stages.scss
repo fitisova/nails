@@ -9,45 +9,15 @@
         margin: 154px auto 0;
     }
 
-    &__steps{
+    &__wrap {
+        margin-top: 32px;
         display: flex;
-        justify-content: space-between;
         align-items: center;
-        flex-wrap: wrap;
-        margin-top: 200px;
+        justify-content: space-around;
     }
-    &__steps-content{
-        max-width: 300px;
-        height: 300px;
-        background: #FFFFFF;
-        box-shadow: 0px 8px 15px rgba(158, 158, 158, 0.25);
-        padding: 8px 16px;
-        margin-top: 20px;
+    &__img{
+        max-width: 250px;
+        // margin-left: 32px;
+        cursor: pointer;
     }
-    &__steps-img{
-
-        &_next{
-            width: 75px;
-            height: 97px;
-        }
-    }
-
-    @include _1200{
-        &__steps{
-            justify-content: space-around;
-        }
-    }
-
-    @include _768{
-        &__steps{
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        &__steps-img_next{
-            transform: rotate(90deg);
-            margin-top: 20px;
-        }
-    }
-   
 }
